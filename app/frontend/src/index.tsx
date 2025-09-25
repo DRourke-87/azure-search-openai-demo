@@ -23,11 +23,7 @@ const router = createHashRouter([
         children: [
             {
                 index: true,
-                element: <Chat />
-            },
-            {
-                path: "qa",
-                lazy: () => import("./pages/ask/Ask")
+                lazy: () => import("./pages/ask/Ask")   // Ask is now the landing page
             },
             {
                 path: "*",

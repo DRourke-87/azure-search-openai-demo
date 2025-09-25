@@ -1,6 +1,6 @@
 .answerContainer {
     padding: 1.25em;
-    background: rgb(249, 249, 249);
+    background: var(--amentum-white);
     border-radius: 0.5em;
     box-shadow:
         0em 0.125em 0.25em rgba(0, 0, 0, 0.14),
@@ -12,57 +12,78 @@
     font-size: 1.75em;
 }
 
+/* Core answer typography */
 .answerText {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.375em;
     padding-top: 1em;
     padding-bottom: 1em;
+    color: var(--amentum-black);
 }
 
+/* Normalise headings rendered from markdown */
 .answerText h1,
-h2,
-h2 {
+.answerText h2,
+.answerText h3 {
     font-size: 1rem;
-    font-weight: bold;
+    font-weight: 700;
+    margin: 0.5em 0;
 }
 
+/* Links inside answers use brand green */
+.answerText a {
+    color: var(--amentum-green);
+    text-decoration: none;
+}
+.answerText a:hover {
+    color: var(--amentum-green-dark);
+    text-decoration: underline;
+}
+
+/* Tables from markdown */
 .answerText table {
     border-collapse: collapse;
+    width: 100%;
 }
-
 .answerText td,
 .answerText th {
-    border: 1px solid;
+    border: 1px solid var(--amentum-grey-dark);
     padding: 0.3125em;
 }
 
+/* Selected answer outline */
 .selected {
-    outline: 0.125em solid rgba(115, 118, 225, 1);
+    outline: 0.125em solid var(--amentum-green);
 }
 
+/* Citations row */
 .citationLearnMore {
     margin-right: 0.3125em;
     font-weight: 600;
     line-height: 1.5em;
+    color: var(--amentum-black);
 }
 
 .citation {
-    font-weight: 500;
+    font-weight: 600;
     line-height: 1.5em;
     text-align: center;
     border-radius: 0.25em;
     padding: 0em 0.5em;
-    background: #d1dbfa;
-    color: #123bb6;
+    background: var(--amentum-grey-light);
+    color: var(--amentum-green);
     text-decoration: none;
     cursor: pointer;
 }
 
 .citation:hover {
-    text-decoration: underline;
+    background: var(--amentum-green-dark);
+    color: var(--amentum-white);
+    text-decoration: none;
 }
 
+/* Follow-up questions row */
 .followupQuestionsList {
     margin-top: 0.625em;
 }
@@ -71,6 +92,7 @@ h2 {
     margin-right: 0.3125em;
     font-weight: 600;
     line-height: 1.5em;
+    color: var(--amentum-black);
 }
 
 .followupQuestion {
@@ -79,13 +101,19 @@ h2 {
     text-align: center;
     border-radius: 0.25em;
     padding: 0em 0.5em;
-    background: #e8ebfa;
-    color: black;
+    background: var(--amentum-grey-light);
+    color: var(--amentum-green-dark);
     font-style: italic;
     text-decoration: none;
     cursor: pointer;
 }
 
+.followupQuestion:hover {
+    background: var(--amentum-green-dark);
+    color: var(--amentum-white);
+}
+
+/* Inline citation <sup> chips */
 .supContainer {
     text-decoration: none;
     cursor: pointer;
@@ -108,17 +136,19 @@ sup {
     min-width: 0.875em;
     height: 0.875em;
     border-radius: 0.1875em;
-    background: #d1dbfa;
-    color: #123bb6;
+    background: var(--amentum-grey-light);
+    color: var(--amentum-green);
     text-decoration-color: transparent;
     outline: transparent solid 0.0625em;
     cursor: pointer;
 }
 
+/* Retry button container (if you expose one) */
 .retryButton {
     width: fit-content;
 }
 
+/* Loading dots animation used by AnswerLoading */
 @keyframes loading {
     0% {
         content: "";

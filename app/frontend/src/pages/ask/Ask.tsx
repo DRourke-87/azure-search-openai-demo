@@ -10,17 +10,14 @@ import { Answer, AnswerError } from "../../components/Answer";
 import { QuestionInput } from "../../components/QuestionInput";
 import { ExampleList } from "../../components/Example";
 import { AnalysisPanel, AnalysisPanelTabs } from "../../components/AnalysisPanel";
-import { SettingsButton } from "../../components/SettingsButton/SettingsButton";
 import { useLogin, getToken, requireAccessControl } from "../../authConfig";
 import { UploadFile } from "../../components/UploadFile";
-import { Settings } from "../../components/Settings/Settings";
 import { useMsal } from "@azure/msal-react";
 import { TokenClaimsDisplay } from "../../components/TokenClaimsDisplay";
 import { LoginContext } from "../../loginContext";
 import { LanguagePicker } from "../../i18n/LanguagePicker";
 
 export function Component(): JSX.Element {
-    const [isConfigPanelOpen, setIsConfigPanelOpen] = useState(false);
     const [promptTemplate, setPromptTemplate] = useState<string>("");
     const [promptTemplatePrefix, setPromptTemplatePrefix] = useState<string>("");
     const [promptTemplateSuffix, setPromptTemplateSuffix] = useState<string>("");
@@ -296,7 +293,6 @@ export function Component(): JSX.Element {
             <div className={styles.askTopSection}>
                 <div className={styles.commandsContainer}>
                     {showUserUpload && <UploadFile className={styles.commandButton} disabled={!loggedIn} />}
-                    <SettingsButton className={styles.commandButton} onClick={() => setIsConfigPanelOpen(!isConfigPanelOpen)} />
                 </div>
                 <h1 className={styles.askTitle}>{t("askTitle")}</h1>
                 <div className={styles.askQuestionInput}>
@@ -348,53 +344,6 @@ export function Component(): JSX.Element {
                     />
                 )}
             </div>
-
-            <Panel
-                headerText={t("labels.headerText")}
-                isOpen={isConfigPanelOpen}
-                isBlocking={false}
-                onDismiss={() => setIsConfigPanelOpen(false)}
-                closeButtonAriaLabel={t("labels.closeButton")}
-                onRenderFooterContent={() => <DefaultButton onClick={() => setIsConfigPanelOpen(false)}>{t("labels.closeButton")}</DefaultButton>}
-                isFooterAtBottom={true}
-            >
-                <Settings
-                    promptTemplate={promptTemplate}
-                    promptTemplatePrefix={promptTemplatePrefix}
-                    promptTemplateSuffix={promptTemplateSuffix}
-                    temperature={temperature}
-                    retrieveCount={retrieveCount}
-                    resultsMergeStrategy={resultsMergeStrategy}
-                    seed={seed}
-                    minimumSearchScore={minimumSearchScore}
-                    minimumRerankerScore={minimumRerankerScore}
-                    useSemanticRanker={useSemanticRanker}
-                    useSemanticCaptions={useSemanticCaptions}
-                    useQueryRewriting={useQueryRewriting}
-                    reasoningEffort={reasoningEffort}
-                    excludeCategory={excludeCategory}
-                    includeCategory={includeCategory}
-                    retrievalMode={retrievalMode}
-                    sendTextSources={sendTextSources}
-                    sendImageSources={sendImageSources}
-                    searchTextEmbeddings={searchTextEmbeddings}
-                    searchImageEmbeddings={searchImageEmbeddings}
-                    showSemanticRankerOption={showSemanticRankerOption}
-                    showQueryRewritingOption={showQueryRewritingOption}
-                    showReasoningEffortOption={showReasoningEffortOption}
-                    showMultimodalOptions={showMultimodalOptions}
-                    showVectorOption={showVectorOption}
-                    useOidSecurityFilter={useOidSecurityFilter}
-                    useGroupsSecurityFilter={useGroupsSecurityFilter}
-                    useLogin={!!useLogin}
-                    loggedIn={loggedIn}
-                    requireAccessControl={requireAccessControl}
-                    showAgenticRetrievalOption={showAgenticRetrievalOption}
-                    useAgenticRetrieval={useAgenticRetrieval}
-                    onChange={handleSettingsChange}
-                />
-                {useLogin && <TokenClaimsDisplay />}
-            </Panel>
         </div>
     );
 }

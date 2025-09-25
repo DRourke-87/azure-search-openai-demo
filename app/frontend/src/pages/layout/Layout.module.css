@@ -1,150 +1,92 @@
-.layout {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.main {
-    display: flex;
-    flex: 1;
-    min-height: 0; /* allow inner scroll areas to work inside flex container */
-}
-
 .header {
-    background-color: #222222;
-    color: #f2f2f2;
+    background: var(--amentum-green-dark); /* brand dark green */
+    color: var(--amentum-white);
+    padding: 0.5rem 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .headerContainer {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    position: relative;
+    width: 100%;
+}
+
+.headerTitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin: 0;
+    color: var(--amentum-white);
 }
 
 .headerTitleContainer {
     display: flex;
     align-items: center;
-    color: #f2f2f2;
     text-decoration: none;
 }
 
 .headerLogo {
-    height: 2rem;
-    width: auto;
-}
-
-.headerTitle {
-    margin-left: 0.5rem;
-    font-weight: 600;
-}
-
-.headerNavList {
-    z-index: 100;
-    display: none;
-    flex-direction: column;
-    background-color: #222222;
-    position: absolute;
-    top: 2.7rem;
-    right: 0;
-    width: auto;
-    list-style: none;
-    padding: 1.1rem;
-    align-items: flex-end;
-}
-
-.headerNavList.show {
-    display: flex; /* Show when toggled */
-}
-
-.headerNavPageLink {
-    padding: 1rem;
-    border-bottom: 1px solid #333;
-    text-align: right;
-    color: #f2f2f2;
-    text-decoration: none;
-    opacity: 0.75;
-    transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-    transition-duration: 500ms;
-    transition-property: opacity;
-    font-size: 1.2rem;
-}
-
-.headerNavPageLink:hover {
-    opacity: 1;
-}
-
-.headerNavPageLinkActive {
-    color: #f2f2f2;
-    text-decoration: none;
-    font-size: 1.2rem;
-    text-align: right;
-    padding: 1rem;
-}
-
-.headerNavLeftMargin {
-    display: none;
+    height: 2rem;        /* adjust size as needed */
+    margin-right: 0.75rem;
 }
 
 .menuToggle {
-    display: block;
     background: none;
     border: none;
-    color: #f2f2f2;
-    font-size: 1.5rem;
+    color: var(--amentum-white);
     cursor: pointer;
-    z-index: 101;
+    font-size: 1.25rem;
 }
 
-.loginMenuContainer {
+.headerNavList {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    background: var(--amentum-green-dark);
+    width: 100%;
+    padding: 1rem;
+}
+
+.headerNavList.show {
     display: flex;
-    align-items: center;
-    gap: 0; /* Ensure no gap between login button and menu toggle */
+}
+
+.headerNavPageLink {
+    color: var(--amentum-white);
+    text-decoration: none;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    transition: color 0.2s ease-in-out;
+}
+
+.headerNavPageLink:hover {
+    color: var(--amentum-green); /* lighter green highlight */
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: var(--amentum-black); /* dark shell */
+    color: var(--amentum-grey-light);
 }
 
 @media (min-width: 992px) {
-    .headerTitle {
-        font-weight: 600;
+    .menuToggle {
+        display: none;
     }
 
     .headerNavList {
-        display: flex;
+        display: flex !important;
         flex-direction: row;
-        list-style: none;
-        padding: 0;
-        position: static;
+        background: none;
         width: auto;
+        padding: 0;
     }
 
     .headerNavPageLink {
-        border-bottom: none;
-        padding: 0;
-        display: block;
-    }
-
-    .headerNavPageLink:hover {
-        opacity: 1;
-    }
-
-    .headerNavPageLinkActive {
-        color: #f2f2f2;
-        text-decoration: none;
-    }
-
-    .headerNavLeftMargin {
-        margin-left: 1.25rem;
-        display: block;
-    }
-
-    .headerRightText {
-        font-weight: normal;
-        display: inline-block;
-        vertical-align: middle;
-    }
-
-    .menuToggle {
-        display: none;
+        margin: 0 1rem;
     }
 }

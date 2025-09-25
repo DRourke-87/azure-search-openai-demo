@@ -1,9 +1,21 @@
+/* Global box sizing */
 * {
     box-sizing: border-box;
 }
 
+/* Amentum brand tokens */
+:root {
+    --amentum-green: #39B54A;        /* Amentum Green */
+    --amentum-green-dark: #046A38;   /* Amentum Dark Green */
+    --amentum-grey-dark: #53575A;    /* Dark Grey */
+    --amentum-grey-light: #EEF0F1;   /* Light Grey */
+    --amentum-black: #000000;
+    --amentum-white: #FFFFFF;
+}
+
+/* App shell and base type */
 html {
-    background: #f2f2f2;
+    background-color: var(--amentum-black);
     font-size: 12px; /* Root font size for 320px width screens */
     font-family:
         "Segoe UI",
@@ -25,12 +37,32 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
+    color: var(--amentum-grey-light); /* High contrast on dark shell */
 }
 
+/* Root mount */
 #root {
     height: 100%;
 }
 
+/* Links match brand green */
+a {
+    color: var(--amentum-green);
+    text-decoration: none;
+}
+a:hover,
+a:focus {
+    color: var(--amentum-green-dark);
+    text-decoration: underline;
+}
+
+/* Text selection hint */
+::selection {
+    background: var(--amentum-green);
+    color: var(--amentum-white);
+}
+
+/* Responsive type scale (unchanged) */
 @media (min-width: 480px) {
     html {
         font-size: 13px; /* Slightly larger font size for larger phones */

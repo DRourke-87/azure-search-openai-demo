@@ -1,6 +1,6 @@
 {
-    "pageTitle": "Azure OpenAI + AI Search",
-    "headerTitle": "Azure OpenAI + AI Search",
+    "pageTitle": "TransformAItion Communications",
+    "headerTitle": "TransformAItion Communications",
     "chat": "Chat",
     "qa": "Ask a question",
     "login": "Login",
@@ -37,17 +37,17 @@
     "chatEmptyStateTitle": "Chat with your data",
     "chatEmptyStateSubtitle": "Ask anything or try an example",
     "defaultExamples": {
-        "1": "What is included in my Northwind Health Plus plan that is not in standard?",
-        "2": "What happens in a performance review?",
-        "3": "What does a Product Manager do?",
-        "placeholder": "Type a new question (e.g. does my plan cover annual eye exams?)"
+        "1": "Where do iCMS employees now submit timesheets and expenses, and how do I get Costpoint access?",
+        "2": "How do I approve Costpoint timesheets?",
+        "3": "How do I raise and approve a Service Purchase Requisition",
+        "placeholder": "Type a new question"
     },
-    "askTitle": "Ask your data",
+    "askTitle": "Ask TransformAItion Communications",
     "multimodalExamples": {
-        "1": "Compare the impact of interest rates and GDP in financial markets.",
-        "2": "What is the expected trend for the S&P 500 index over the next five years? Compare it to the past S&P 500 performance",
-        "3": "Can you identify any correlation between oil prices and stock market trends?",
-        "placeholder": "Example: Does my plan cover annual eye exams?"
+        "1": "Where do iCMS employees now submit timesheets and expenses, and how do I get Costpoint access?",
+        "2": "How do I approve Costpoint timesheets?",
+        "3": "How do I raise and approve a Service Purchase Requisition",
+        "placeholder": "Type a new question"
     },
     "generatingAnswer": "Generating answer",
     "citationWithColon": "Citation:",
