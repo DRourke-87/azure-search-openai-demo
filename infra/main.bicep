@@ -1063,11 +1063,12 @@ module openAiRoleBackend 'core/security/role.bicep' = if (isAzureOpenAiHost && d
   }
 }
 
-module openAiRoleSearchService 'core/security/role.bicep' = if (isAzureOpenAiHost && deployAzureOpenAi) {
+// Only assign role if not using free tier; fallback to app principalId if needed
+module openAiRoleSearchService 'core/security/role.bicep' = if (searchServiceSkuName != 'free' && isAzureOpenAiHost && deployAzureOpenAi) {
   scope: openAiResourceGroup
   name: 'openai-role-searchservice'
   params: {
-    principalId: searchService.outputs.principalId
+    principalId: !empty(searchService.outputs.principalId) ? searchService.outputs.principalId : principalId
     roleDefinitionId: '5e0bd9bd-7b93-4f28-af87-19fc36ad61bd'
     principalType: 'ServicePrincipal'
   }

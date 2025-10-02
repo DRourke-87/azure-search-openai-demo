@@ -1,4 +1,5 @@
 import { Stack, Pivot, PivotItem } from "@fluentui/react";
+import "./AnalysisPanel.pivot.override.css";
 import { useTranslation } from "react-i18next";
 import styles from "./AnalysisPanel.module.css";
 
