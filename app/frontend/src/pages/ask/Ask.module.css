@@ -28,6 +28,25 @@
     margin-top: 0;
 }
 
+.askDescription {
+    text-align: center;
+    max-width: 64.25rem;
+    margin: 0 auto 1rem auto;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #666;
+    padding: 0 1rem;
+}
+
+.askDescription a {
+    color: #0078d4;
+    text-decoration: underline;
+}
+
+.askDescription a:hover {
+    text-decoration: none;
+}
+
 .askQuestionInput {
     padding: 1rem;
     width: 100%;
@@ -44,6 +63,13 @@
 .askAnalysisPanel {
     width: 37.5rem;
     margin-left: 1.25rem;
+}
+
+@media (max-width: 991px) {
+    .askAnalysisPanel {
+        width: 100%;
+        margin-left: 0;
+    }
 }
 
 .askSettingsSeparator {

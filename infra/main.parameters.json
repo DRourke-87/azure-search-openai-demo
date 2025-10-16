@@ -102,7 +102,7 @@
       "value": "${AZURE_APP_SERVICE_SKU=B1}"
     },
     "backendServiceName": {
-      "value": "${AZURE_APP_SERVICE}"
+      "value": "transformation-chatbot"
     },
     "chatGptModelName": {
       "value": "${AZURE_OPENAI_CHATGPT_MODEL}"

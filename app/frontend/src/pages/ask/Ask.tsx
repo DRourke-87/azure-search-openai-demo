@@ -284,6 +284,17 @@ export function Component(): JSX.Element {
 
     const { t, i18n } = useTranslation();
 
+    const handleClearChat = () => {
+        setAnswer(undefined);
+        setError(undefined);
+        setActiveCitation(undefined);
+        setActiveAnalysisPanelTab(undefined);
+        setSpeechUrls([null]);
+        lastQuestionRef.current = "";
+        setIsPlaying(false);
+        setQuestion(""); // Reset the question input field as well
+    };
+
     return (
         <div className={styles.askContainer}>
             {/* Setting the page title using react-helmet-async */}
@@ -295,6 +306,38 @@ export function Component(): JSX.Element {
                     {showUserUpload && <UploadFile className={styles.commandButton} disabled={!loggedIn} />}
                 </div>
                 <h1 className={styles.askTitle}>{t("askTitle")}</h1>
+                <p className={styles.askDescription}>
+                This AI tool summarises key Transformation resources such as FAQs and Toolkits, please cross-check all answers with the source information.
+                <br />
+                <br />
+                Please refer to the{" "}
+                <a
+                    href="https://amentumcms.sharepoint.com/sites/EST/SitePages/E%26E-I-Transformation.aspx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Transformation Hub
+                </a>{" "}
+                for the latest updates and further information.
+                <br />
+                <br />
+                If you cannot find what you are looking for, please visit{" "}
+                <a
+                    href="https://amentum.servicenowservices.com/amtm?id=support_portal"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    ServiceNow
+                </a>{" "}
+                to log a support request for items related to IT, HR or Payroll. For support with other topics, please log a{" "}
+                <a
+                    href="https://forms.office.com/Pages/ResponsePage.aspx?id=uYZSw7PRCECan_IAWqqqMP5gEfVsr1FCpx1zGKrWAqhUMVNZOUdXRUxETllOVTZRUE5SUkJEQVVXUi4u"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    Hypercare ticket
+                </a>.
+                </p>
                 <div className={styles.askQuestionInput}>
                     <QuestionInput
                         placeholder={t("multimodalExamples.placeholder")}
@@ -315,6 +358,7 @@ export function Component(): JSX.Element {
                 )}
                 {!isLoading && answer && !error && (
                     <div className={styles.askAnswerContainer}>
+                        <DefaultButton onClick={handleClearChat} text="New Question" />
                         <Answer
                             answer={answer}
                             index={0}

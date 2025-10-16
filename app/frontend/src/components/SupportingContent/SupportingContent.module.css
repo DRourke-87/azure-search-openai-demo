@@ -21,11 +21,13 @@
 
 .supportingContentItemHeader {
     margin: 0;
+    color: #000; /* black for header contrast */
 }
 
 .supportingContentItemText {
     margin-bottom: 0;
     font-weight: 300;
+    color: #333; /* dark gray for contrast on light background */
 }
 
 .supportingContentItemImage {

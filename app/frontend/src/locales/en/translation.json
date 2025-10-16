@@ -42,11 +42,11 @@
         "3": "How do I raise and approve a Service Purchase Requisition",
         "placeholder": "Type a new question"
     },
-    "askTitle": "Ask TransformAItion Communications",
+    "askTitle": "Ask TransformAItion ChatBot",
     "multimodalExamples": {
-        "1": "Where do iCMS employees now submit timesheets and expenses, and how do I get Costpoint access?",
-        "2": "How do I approve Costpoint timesheets?",
-        "3": "How do I raise and approve a Service Purchase Requisition",
+        "1": "Where can I find the booking codes? ",
+        "2": "How do I apply for a company credit card? ",
+        "3": "How do I submit an expense claim?",
         "placeholder": "Type a new question"
     },
     "generatingAnswer": "Generating answer",
